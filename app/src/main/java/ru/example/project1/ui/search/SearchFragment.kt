@@ -6,7 +6,7 @@ import ru.example.project1.core.ui.BaseFragment
 import ru.example.project1.databinding.FragmentSearchBinding
 import ru.example.project1.ui.main.MainFragment
 
-class SearchFragment : BaseFragment(R.layout.fragment_search) {
+class SearchFragment : BaseFragment<Unit>(R.layout.fragment_search) {
 
     override val binding: FragmentSearchBinding
         get() = setupBinding(FragmentSearchBinding::bind)
@@ -18,5 +18,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
             safeNavigate(requireActivity(), MainFragment())
         }
     }
+
+    override fun renderState(state: Unit) = Unit
 
 }

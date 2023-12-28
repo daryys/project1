@@ -3,14 +3,15 @@ package ru.example.project1.core.ui
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import ru.example.project1.ui.MainActivity
 
-abstract class BaseFragment(@LayoutRes resId: Int) : Fragment(resId) {
+abstract class BaseFragment<T>(@LayoutRes resId: Int) : Fragment(resId) {
 
-    protected abstract val vm: BaseViewModel
+    protected abstract val vm: BaseViewModel<T>
 
     abstract val binding: ViewBinding
 
@@ -18,6 +19,9 @@ abstract class BaseFragment(@LayoutRes resId: Int) : Fragment(resId) {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initListeners()
+        vm.state.observe(this.viewLifecycleOwner) {
+            renderState(it)
+        }
     }
 
     protected open fun initView() = Unit
@@ -29,4 +33,10 @@ abstract class BaseFragment(@LayoutRes resId: Int) : Fragment(resId) {
     }
 
     protected fun <B : ViewBinding> setupBinding(create: (View) -> B) = create(requireView())
+
+    protected fun showToast(text: String) {
+        Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+    }
+
+    abstract fun renderState(state: T)
 }
