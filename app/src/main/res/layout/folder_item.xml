@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/iv_folder_icon"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:src="@drawable/shopping_cart" />
 
     <TextView
         android:id="@+id/tv_folder_title"
-        style="@style/text_black_style"
+        style="@style/text_black_bold_style"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="8dp"

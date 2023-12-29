@@ -70,7 +70,6 @@ class FolderListAdapter(
         }
     }
 
-
     override fun getItemViewType(position: Int) = when (itemList[position]) {
         is FolderListItem.FolderItem -> ITEM_VIEW_TYPE
         is FolderListItem.AddItemList -> ADD_BUTTON_VIEW_TYPE
