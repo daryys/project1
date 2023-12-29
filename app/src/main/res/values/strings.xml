@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Store</string>
     <string name="task">Tasks</string>
+    <string name="today_task">Let's add tasks for today!</string>
 </resources>
