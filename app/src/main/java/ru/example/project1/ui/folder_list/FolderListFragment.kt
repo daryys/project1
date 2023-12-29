@@ -8,12 +8,13 @@ import ru.example.project1.R
 import ru.example.project1.core.ui.BaseFragment
 import ru.example.project1.databinding.FragmentFolderListBinding
 import ru.example.project1.ui.folder_list.adapter.FolderListAdapter
+import ru.example.project1.ui.task_list.TaskListFragment
 
 class FolderListFragment : BaseFragment<FolderListState>(R.layout.fragment_folder_list) {
 
     private val adapter = FolderListAdapter(
         onItemClick = {
-            showToast("Task clicked")
+            safeNavigate(requireActivity(), TaskListFragment())
         },
         addItemClick = {
             vm.addFolder()
@@ -24,8 +25,7 @@ class FolderListFragment : BaseFragment<FolderListState>(R.layout.fragment_folde
     override val binding: FragmentFolderListBinding
         get() = setupBinding(FragmentFolderListBinding::bind)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initView() = with(binding) {
         rvFolderList.layoutManager = GridLayoutManager(requireContext(), 2)
         rvFolderList.adapter = adapter
     }

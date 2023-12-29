@@ -38,10 +38,11 @@
 
     <ImageButton
         android:id="@+id/ib_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_margin="16dp"
-        android:background="@drawable/burger_line_list"
+        android:background="@drawable/plus_icon"
+        android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/tv_tasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_tasks" />
